@@ -1,0 +1,17 @@
+<div class="container-all pt-3">
+    <div class="centered-box w-50 shadow-ld">
+        <h2>Sign Up</h2>
+        <form action="/signup" method="POST" id="form-container">
+            <div>
+                <input type="text" name="username" id="username" placeholder="Username" class="mb-2 p-1 w-100">
+            </div>
+            <input type="password" name="password" id="password" placeholder="Password" class="mb-2 p-1 w-100">
+            <button class="mb-2 p-1 w-100">Create an Account</button>
+            <p>You already have an account? <a href="/login" class="btn-log-sign">Login</a></p>
+        </form>
+
+    </div>
+        {{#if message}}
+    <div class="error-message"> {{ message }} </div>
+    {{/if}}
+</div>
