@@ -67,7 +67,19 @@ router.post("/signup", (req, res, next) => {
 
 
 //Get & Post Login
+router.get("/login", (req, res, next) => {
+  res.render("views/auth/login", { message: req.flash("error") });
+});
 
+    //Start session with Passport
+router.post("/login", (req, res, next) => {
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/login",
+    failureFlash: true,
+    passReqToCallback: true
+  })(req, res, next);
+})
 
 
 

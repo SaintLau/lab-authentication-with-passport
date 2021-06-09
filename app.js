@@ -9,6 +9,12 @@ const mongoose = require('mongoose');
 const logger = require('morgan');
 const path = require('path');
 
+const bcrypt = require("bcrypt");
+const passport = require("passport");
+const LocalStrategy = require("passport-local");
+const flash = require("connect-flash");
+const User = require("./models/User.model");
+
 mongoose
   .connect('mongodb://localhost/auth-with-passport', {
     useNewUrlParser: true,
