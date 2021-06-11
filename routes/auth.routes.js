@@ -79,17 +79,20 @@ router.post("/login", (req, res, next) => {
     failureFlash: true,
     passReqToCallback: true
   })(req, res, next);
-})
+});
 
 
 
 // Get a private page
 router.get('/private-page', ensureLogin.ensureLoggedIn(), (req, res) => {
-  res.render('passport/private', { user: req.user });
+  res.render("views/auth/private", { user: req.user });
 });
 
 
 //Get Logout
-
+router.get("/logout", (req, res, next) => {
+  req.logout();
+  res.redirect("/");
+});
 
 module.exports = router;
